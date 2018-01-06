@@ -1,42 +1,64 @@
 
-<div class="container">
-<div class="row">
-  <div class="col-lg-6 col-md-offset-3">
-      <h1 class="space-top text-center">Signup</h1>
+<!------------------------------------Sign Up-------------------------------->
 
-    {{#if message }}
-    <div class="alert alert-success alert-dismissible">
-      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-      {{ message  }}
-    </div>
-    {{/if}}
+            <div class="container-fluid signup">
+                <div class="container">      
+                    <div class="row">
+                          {{#if message }}
+                            <div class="alert alert-success alert-dismissible">
+                              <button type="button" class="close" data-dismiss="alert" 
 
-      <hr />
+                               aria-label="Close"><span aria-
 
-      <form role="form" method="post">
+                              hidden="true">&times;</span></button>
+                              {{ message  }}
+                            </div>
+                            {{/if}}
+                        
+                        <div class="col-md-2 col-sm-12">
 
-        <div class="form-group">
-          <label for="name">Name:</label>
-          <input type="text" class="form-control" name="name">
-        </div>
-        <div class="form-group">
-          <label for="username">Username</label>
-          <input type="text" class="form-control" name="username">
-        </div>
-        <div class="form-group">
-          <label for="email">Email address:</label>
-          <input type="email" class="form-control" name="email">
-        </div>
-        <div class="form-group">
-          <label for="password">Password:</label>
-          <input type="password" class="form-control" name="password">
-        </div>
+                        </div>
+                        <div class="col-md-3 col-sm-12 margin_padding">
 
-      <button type="submit" class="btn btn-success">Submit</button>
+                            <div class="sign_left">
+                                <h3 class="text-center"><i class="fa fa-eercast" aria-hidden="true"></i> Synergy</h3>
+                                <br>
+                                <h2 class="text-center">Create Your Account</h2>
+                                <br>
+                                <p>Sign up for a free account to create fully Project managemnet.</p>
+                            </div>
+                        </div>
 
-    </form>
-    <hr />
+                        <div class="col-md-5 col-sm-12 margin_padding">
+                            <div class="sign_right">
+                                <form method="post" role="form">
+                                      <div class="input-group">
+                                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                        <input id="name" type="name" class="form-control" name="name" placeholder="Full name">
+                                      </div>
+                                      <div class="input-group">
+                                        <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+                                        <input id="email" type="text" class="form-control" name="email" placeholder="Email">
+                                      </div>
+                                      <div class="input-group">
+                                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                        <input id="name" type="name" class="form-control" name="username" placeholder="User name">
+                                      </div>
+                                      <div class="input-group">
+                                        <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                                        <input id="password" type="password" class="form-control" name="password" placeholder="Password">
+                                      </div>
+                                     <div class="checkbox">
+                                          <label><input style="height:14px;" type="checkbox" value="">I accept synergy <a>Master Services Agreement.</a></label>
+                                     </div>
+                                     <button type="submit" class="btn btn-default">Create Account</button>  
+                                </form>  
+                            </div>
+                        </div>
 
-  </div>
-</div>
-</div>
+                        <div class="col-md-2 col-sm-12">
+
+                        </div>  
+                    </div>
+                </div>       
+            </div>

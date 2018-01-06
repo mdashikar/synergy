@@ -1,0 +1,181 @@
+body
+{
+    background-color: #1D2733;
+}
+
+h1,h2,h3,h4,h5,h6
+{
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Ubuntu', sans-serif;
+    font-family: 'Quicksand', sans-serif;
+}
+p,button,a,input,label
+{
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Ubuntu', sans-serif;
+    font-family: 'Quicksand', sans-serif;
+    letter-spacing: 1px;
+}
+.margin_padding
+{
+    margin-left:0%;
+    margin-right: 0%;
+    padding-left: 0%;
+    padding-right: 0%;
+}
+
+/****************Navigation**************/
+
+.navigation .navbar-inverse
+{
+    background-color:#373f46;
+    border: none;
+}
+.navigation .navbar
+{
+    border-radius: 0%;
+}
+
+/*****************Log In*****************/
+.login
+{
+    position: absolute;
+    top: 50%;
+    left:50%;
+    transform: translate(-50%,-50%); 
+    color: white;
+}
+.login h2
+{
+    padding-bottom: 4.2%;
+}
+.log_left
+{
+    background-color: #384B5C;
+    border-radius: 4px 0 0 4px;
+    padding: 5%;
+}
+.log_right
+{
+    background-color: #304150;
+    border-radius: 0 4px 4px 0;
+    padding-top: 5.1%;
+}
+.login a
+{
+    color: orange;
+    text-decoration: none;
+}
+.login button
+{
+   background-color: rgba(50, 172, 237, 0.2);
+   width: 100%;
+   border: none;
+   border-radius: 0px;
+   height: 50px; 
+   color:#E4E6E6;
+   letter-spacing: 2px;
+   font-weight: 500;
+   transition: all .9s linear;
+   font-size: 14px; 
+}
+.login button:hover
+{
+   
+    background-color: rgba(240, 250, 255, 0.1);
+    transition: all .9s linear;
+    color:#E4E6E6;
+}
+.login input
+{
+    background-color: #304150;
+    color: white;
+    height: 45px;
+    border: 0.5px solid white;
+}
+.login .input-group
+{
+     padding: 5%;
+}
+.login .input-group-addon
+{
+   
+  background-color: #1d2733;
+  color: #bdb5b5;
+  border: 0.5px solid white;    
+}
+
+/****************Sign Up****************/
+.signup
+{
+    position: absolute;
+    top: 50%;
+    left:50%;
+    transform: translate(-50%,-50%); 
+    color: white;
+}
+.signup h2
+{
+    padding-bottom: 68.3%;
+}
+.sign_left
+{
+    background-color: #384B5C;
+    border-radius: 4px 0 0 4px;
+    padding: 5%;
+}
+.sign_right
+{
+    background-color: #304150;
+    border-radius: 0 4px 4px 0;
+    padding-top: 5%;
+}
+.signup a
+{
+    color: orange;
+    text-decoration: none;
+}
+.signup button
+{
+   background-color: rgba(50, 172, 237, 0.2);
+   width: 100%;
+   border: none;
+   border-radius: 0px;
+   height: 50px; 
+   color:#E4E6E6;
+   letter-spacing: 2px;
+   font-weight: 500;
+   transition: all .9s linear;
+   font-size: 14px; 
+}
+.signup button:hover
+{
+   
+    background-color: rgba(240, 250, 255, 0.1);
+    transition: all .9s linear;
+    color:#E4E6E6;
+}
+.signup input
+{
+    background-color: #304150;
+    color: white;
+    border: 0.5px solid white;
+}
+.signup .input-group
+{
+     padding: 4%;
+}
+.signup .input-group-addon
+{
+   
+  background-color: #1d2733;
+  color: #bdb5b5;
+  border: 0.5px solid white;    
+}
+.signup .checkbox
+{
+   
+  padding: 0px 25px 25px 25px;
+     
+}
+
