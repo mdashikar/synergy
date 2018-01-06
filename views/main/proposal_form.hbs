@@ -1,0 +1,125 @@
+
+        <!-- Top content -->
+        <div class="top-content">
+            <div class="container">
+                
+                <div class="row">
+                    <div class="col-sm-8 col-sm-offset-2 text">
+                        <h1><strong>Project</strong> Proposal</h1>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3 form-box">
+                    	<form role="form" action="/submit-proposal" method="post" class="f1">
+                    	    <div class="alert alert-warning">
+                              <strong>Warning!</strong>&nbsp;Read the form carefully before you write anything
+                            </div>
+                    	
+                    		<div class="f1-steps">
+                    			<div class="f1-progress">
+                    			    <div class="f1-progress-line" data-now-value="16.66" data-number-of-steps="3" style="width: 16.66%;"></div>
+                    			</div>
+                    			<div class="f1-step active">
+                    				<div class="f1-step-icon"><i class="fa fa-pencil"></i></div>
+                    				<p class="text-center">Introduce</p>
+                    			</div>
+                    			<div class="f1-step">
+                    				<div class="f1-step-icon"><i class="fa fa-book"></i></div>
+                    				<p class="text-center">Project Details</p>
+                    			</div>
+                    		    <div class="f1-step">
+                    				<div class="f1-step-icon"><i class="fa fa-users"></i></div>
+                    				<p class="text-center">Member Info</p>
+                    			</div>
+                    		</div>
+                    		
+                    		<fieldset>
+                    			<div class="form-group">
+                    			    <label  for="f1-first-name">Project Name</label>
+                                    <input type="text" name="projectName" placeholder="Synergy" class="f1-first-name form-control" id="f1-first-name">
+                                </div>
+                                <div class="form-group">
+                                    <label  for="f1-last-name">Project Categories </label>
+                                    <select id="f1-last-name" name="projectType">
+                                    <option>Select Options</option>
+                                    <option>Web Application Development</option>
+                                    <option>Mobile Application Development</option>
+                                    <option>Game Development</option>
+                                    <option>Thesis</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label  for="f1-last-name">Course Code</label>
+                                    <select id="f1-last-name" name="projectCourseCode">
+                                    <option>Select Options</option>
+                                    <option>CSE-3300</option>
+                                    <option>CSE-4400</option>
+                                
+                                    </select>
+                                </div>
+                                <div class="f1-buttons">
+                                    <button type="button" class="btn btn-next">Next</button>
+                                </div>
+                            </fieldset>
+
+                            <fieldset>
+                                <div class="form-group">
+                                    <label  for="f1-about-yourself">Project Overview</label>&nbsp;<a class="pull-right" href="/demo-proposal" target="_blank"><i class="fa fa-hand-o-right" aria-hidden="true"></i> view demo</a>
+                                    <textarea id="editor" name="projectSummary" placeholder="Overview" 
+                                    	                 class="f1-about-yourself form-control" id="f1-about-yourself"></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label  for="f1-about-yourself">Project Tools</label>
+                                    <br>
+                                    <input type="text" name="projectTools" value="" data-role="tagsinput" class="f1-first-name form-control" />
+                                </div>
+                                
+                                <div class="f1-buttons">
+                                    <button type="button" class="btn btn-previous">Previous</button>
+                                    <button type="button" class="btn btn-next">Next</button>
+                                </div>
+                            </fieldset>
+
+                            <fieldset>
+                                <div class="child">
+                                
+                                <div class="form-group">
+                                    <label for="f1-name">Name</label>
+                                    <input type="text" name="memberName[]" placeholder="Name" class="f1-name form-control" id="f1-name">
+                                </div>
+                               
+                                <div class="form-group">
+                                    <label  for="f1-email">Email</label>
+                                    <input type="text" name="memberEmail[]" placeholder="Email" class="f1-email form-control" id="f1-email">
+                                </div>
+                                <div class="form-group">
+                                    <label for="f1-number">Id</label>
+                                    <input type="number" name="memberId[]" placeholder="1412020028" class="f1-number form-control" id="f1-number">
+                                </div>
+                                <div class="form-group">
+                                    <label for="f1-number">Id</label>
+                                    <input type="number" name="memberNumber[]" placeholder="+880 1750 000 000" class="f1-number form-control" id="f1-number">
+                                </div>
+                                
+                                <br>
+                                <div class="row">
+                                    <div class="col-md-12"> 
+                                        <button name="addDom" class="btn btn-warning addchild"> Add Member</button>
+                                    </div>
+                                </div>
+                                <div class="f1-buttons">
+                                    <button type="button" class="btn btn-previous">Previous</button>
+                                    <button type="submit" class="btn btn-submit">Submit</button>
+                                </div>
+                                </div>
+                            </fieldset>
+                    	
+                    	</form>
+                    </div>
+                </div>
+                    
+            </div>
+        </div>
+     
+  
