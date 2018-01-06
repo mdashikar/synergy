@@ -23,33 +23,31 @@ router.route('/submit-proposal')
             memberNumber: req.body.memberNumber
         });
         console.log(projectSubmit.memberId);
-        //     RegisteredStudent.findOne({ student_id : projectSubmit.memberId}, function(err, registered)                                                                 
-        //     {
-        //         console.log(registered.student_id +" "+ projectSubmit.memberId);
-        //         if(!registered)
-        //         {
-        //             return res.send(`${projectSubmit.memberId} is not registered`);
-        //         }
-        //         projectSubmit.save().then((doc) => {
-        //             //res.send(doc);
-        //           //  res.status(200).send('welcome', doc);
-        //             res.redirect('/submit-proposal');
-        //             console.log('In saving page');
-        //            //res.render('projectList', doc);
-        //        }, (e) => {
-        //             res.status(400).send(e);
-        //        });
-        //    });
-
-        projectSubmit.save().then((doc) => {
-            //res.send(doc);
-            res.send(doc);
-            //res.redirect('/submit-proposal');
-            console.log('In saving page');
-            //res.render('projectList', doc);
-        }, (e) => {
-            res.status(400).send(e);
+        RegisteredStudent.findOne({ student_id: projectSubmit.memberId }, function(err, registered) {
+            // console.log(registered.student_id + " " + projectSubmit.memberId);
+            if (!registered) {
+                return res.send(`${projectSubmit.memberId} is not registered`);
+            }
+            projectSubmit.save().then((doc) => {
+                //res.send(doc);
+                //  res.status(200).send('welcome', doc);
+                res.redirect('/submit-proposal');
+                console.log('In saving page');
+                //res.render('projectList', doc);
+            }, (e) => {
+                res.status(400).send(e);
+            });
         });
+
+        // projectSubmit.save().then((doc) => {
+        //     //res.send(doc);
+        //     res.send(doc);
+        //     //res.redirect('/submit-proposal');
+        //     console.log('In saving page');
+        //     //res.render('projectList', doc);
+        // }, (e) => {
+        //     res.status(400).send(e);
+        // });
     });
 router.get('/demo-proposal', (req, res, next) => {
     res.render('main/demo_proposal', { title: 'Submit Proposal' });
