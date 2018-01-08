@@ -360,4 +360,10 @@ p,button,a,input,label
   padding: 0px 25px 25px 25px;
      
 }
-
+#disbtn
+{
+    color: black !important;
+    width: 100px;
+    font-size: 20px;
+    font-weight: 700;
+}

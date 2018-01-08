@@ -10,7 +10,8 @@ const StudentSchema = new Schema({
   password: String,
   boards: [{
      type: Schema.Types.ObjectId, ref: 'Boards'
-  }]
+  }],
+  proposal_id : String
 });
 
 StudentSchema.pre('save', function(next) {
