@@ -4,7 +4,11 @@ const { ProjectSubmit } = require('../models/proposals');
 
 
 router.get('/', (req, res, next) => {
-    res.render('main/home', { title: "Synergy - Welcome" });
+    if(req.user){
+        res.render('main/welcome', {title: 'Project Board', user:user});
+    }else{
+        res.render('main/home', { title: "Synergy - Welcome" });
+    }
 });
 router.route('/submit-proposal')
     .get((req, res, next) => {
