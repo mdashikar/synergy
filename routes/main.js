@@ -20,7 +20,8 @@ router.route('/submit-proposal')
             memberName: req.body.memberName,
             memberEmail: req.body.memberEmail,
             memberId: req.body.memberId,
-            memberNumber: req.body.memberNumber
+            memberNumber: req.body.memberNumber,
+            supervisorName : "Supervisor name will be added here when proposal is accepted"
         });
         console.log(projectSubmit.memberId);
         RegisteredStudent.findOne({ student_id: projectSubmit.memberId }, function(err, registered) {
