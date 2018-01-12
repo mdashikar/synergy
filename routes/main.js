@@ -5,8 +5,13 @@ const { ProjectSubmit } = require('../models/proposals');
 
 router.get('/', (req, res, next) => {
     if(req.user){
-        var user = req.user;
-        res.render('main/welcome', {title: 'Project Board', user:user});
+        let user = req.user;
+        //res.render('main/welcome', {title: 'Project Board', user:user});
+        ProjectSubmit.find({'_id': user.proposal_id}).then((projects) => {
+            console.log("inside: ",user.proposal_id)
+            res.render('main/welcome', { title: 'Project Board', projects: projects,
+            errorMessage: req.flash('errors'),successMessage: req.flash('success')});            
+        });
     }else{
         res.render('main/home', { title: "Synergy - Welcome" });
     }
@@ -26,7 +31,8 @@ router.route('/submit-proposal')
             memberEmail: req.body.memberEmail,
             memberId: req.body.memberId,
             memberNumber: req.body.memberNumber,
-            supervisorName : "Supervisor name will be added here when proposal is accepted"
+            supervisorName : "Supervisor name will be added here when proposal is accepted",
+            status : "Not Started"
         });
         console.log(projectSubmit.memberId);
         RegisteredStudent.findOne({ student_id: projectSubmit.memberId }, function(err, registered) {
