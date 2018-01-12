@@ -1,12 +1,16 @@
 const router = require('express').Router();
 const RegisteredStudent = require('../models/registered_user');
 const { ProjectSubmit } = require('../models/proposals');
+const Student = require('../models/students');
 
 
 router.get('/', (req, res, next) => {
     if(req.user){
         var user = req.user;
-        res.render('main/welcome', {title: 'Project Board', user:user});
+        Student.find({'_id': user.proposal_id}).then((projects) => {
+            res.render('main/welcome', { title: 'Project Board', projects: projects,
+            errorMessage: req.flash('errors'),successMessage: req.flash('success')});            
+        });
     }else{
         res.render('main/home', { title: "Synergy - Welcome" });
     }
@@ -59,6 +63,13 @@ router.route('/submit-proposal')
 router.get('/demo-proposal', (req, res, next) => {
     res.render('main/demo_proposal', { title: 'Submit Proposal' });
 });
+router.get('/board', (req, res, next) => {
+    res.render('main/board', { title: 'Project Board' });
+});
+router.get('/profile', (req, res, next) => {
+    res.render('accounts/profile', { title: 'Profile' });
+});
+
 
 
 module.exports = router;

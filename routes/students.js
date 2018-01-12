@@ -32,7 +32,7 @@ router.route('/signup/:id')
           req.logIn(student, function(err) {
             if (err) return next(err);
             console.log('student : ',student.proposal_id);
-            res.redirect('/profile');
+            res.redirect('/');
           });
         });
       }
