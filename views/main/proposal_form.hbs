@@ -13,6 +13,15 @@
                             
                         </div>
                     {{/if}}
+                    {{#if errorMessage}}
+                        <div class="col-md-12 alert alert-danger alert-dismissible" role="alert">
+                            <button id="disbtn" type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">X</span>
+                            </button>
+                            <strong>{{ errorMessage}}</strong> 
+                            
+                        </div>
+                    {{/if}}
                     <div class="col-md-offset-4"></div>
                    
                     <div class="col-sm-8 col-sm-offset-2 text">
@@ -78,22 +87,22 @@
                             <fieldset>
                                 <div class="form-group">
                                     <label  for="f1-about-yourself">Abstract</label>&nbsp;<a class="pull-right" href="/demo-proposal" target="_blank"><i class="fa fa-hand-o-right" aria-hidden="true"></i> view demo</a>
-                                    <textarea id="editor" name="projectSummary" placeholder="Overview" 
+                                    <textarea id="editor" name="projectAbstract" placeholder="Overview" 
                                     	                 class="f1-about-yourself form-control" id="f1-about-yourself"></textarea>
                                 </div>
                                 <div class="form-group">
                                     <label  for="f1-about-yourself">Object</label>
-                                    <textarea    name="object" 
+                                    <textarea    name="projectObject" 
                                     	                 class="f1-about-yourself form-control" id="f1-about-yourself"></textarea>
                                 </div>
                                 <div class="form-group">
                                     <label  for="f1-about-yourself">Key features</label>
-                                    <textarea   name="keyFeatures" 
+                                    <textarea   name="projectKeyFeatures" 
                                     	                 class="f1-about-yourself form-control" id="f1-about-yourself"></textarea>
                                 </div>
                                 <div class="form-group">
                                     <label  for="f1-about-yourself">Number of module</label>
-                                    <textarea   name="module"  
+                                    <textarea   name="projectNumberOfModules"  
                                     	                 class="f1-about-yourself form-control" id="f1-about-yourself"></textarea>
                                 </div>
                                 
@@ -104,7 +113,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label  for="f1-about-yourself">Conclusion</label>
-                                    <textarea   name="conclusion" 
+                                    <textarea   name="projectConclusion" 
                                     	                 class="f1-about-yourself form-control" id="f1-about-yourself"></textarea>
                                 </div>
                                 

@@ -19,7 +19,7 @@ router.get('/', (req, res, next) => {
 });
 router.route('/submit-proposal')
     .get((req, res, next) => {
-        res.render('main/proposal_form', { title: 'Proposal Submit',successMessage: req.flash('success') });
+        res.render('main/proposal_form', { title: 'Proposal Submit',successMessage: req.flash('success'),errorMessage: req.flash('error') });
     })
     .post((req, res, next) => {
         var projectSubmit = new ProjectSubmit({
@@ -27,7 +27,11 @@ router.route('/submit-proposal')
             projectType: req.body.projectType,
             projectCourseCode: req.body.projectCourseCode,
             projectTools: req.body.projectTools,
-            projectSummary: req.body.projectSummary,
+            projectAbstract: req.body.projectAbstract,
+            projectObject : req.body.projectObject,
+            projectKeyFeatures : req.body.projectKeyFeatures,
+            projectNumberOfModules : req.body.projectNumberOfModules,
+            projectConclusion : req.body.projectConclusion,
             memberName: req.body.memberName,
             memberEmail: req.body.memberEmail,
             memberId: req.body.memberId,
@@ -41,27 +45,21 @@ router.route('/submit-proposal')
             if (!registered) {
                 return res.send(`${projectSubmit.memberId} is not registered`);
             }
-            projectSubmit.save().then((doc) => {
+            projectSubmit.save().then((doc) => 
+            {
                 //res.send(doc);
                 //  res.status(200).send('welcome', doc);
                 req.flash('success', 'Proposal Submitted!');
                 res.redirect('/submit-proposal');
                 console.log('In saving page');
                 //res.render('projectList', doc);
-            }, (e) => {
+            }, (e) => 
+            {
                 res.status(400).send(e);
             });
+            
         });
 
-        // projectSubmit.save().then((doc) => {
-        //     //res.send(doc);
-        //     res.send(doc);
-        //     //res.redirect('/submit-proposal');
-        //     console.log('In saving page');
-        //     //res.render('projectList', doc);
-        // }, (e) => {
-        //     res.status(400).send(e);
-        // });
     });
 router.get('/demo-proposal', (req, res, next) => {
     res.render('main/demo_proposal', { title: 'Submit Proposal' });

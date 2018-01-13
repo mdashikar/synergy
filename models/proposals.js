@@ -35,12 +35,36 @@ var ProjectSubmit = mongoose.model('ProjectSubmit', {
         minLength: 5,
         trim:true
     },
-    projectSummary:{
+    projectAbstract:{
         type: 'string',
         required: true,
         minLength: 2,
         trim:true
     },
+    projectObject:{
+        type: 'string',
+        required: true,
+        minLength: 2,
+        trim:true
+    },
+    projectKeyFeatures:{
+        type: 'string',
+        required: true,
+        minLength: 2,
+        trim:true
+    },
+    projectNumberOfModules:{
+        type: 'string',
+        minLength: 2,
+        trim:true
+    },
+    projectConclusion:{
+        type: 'string',
+        required: true,
+        minLength: 2,
+        trim:true
+    },
+    
     memberName:[{
         type: String,
         required: true,
