@@ -55,7 +55,9 @@ router.route('/submit-proposal')
                 //res.render('projectList', doc);
             }, (e) => 
             {
-                res.status(400).send(e);
+                //res.status(400).send(e);
+                req.flash('error','Duplication error!');
+                res.redirect('/submit-proposal');
             });
             
         });
