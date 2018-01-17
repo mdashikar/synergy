@@ -43,7 +43,9 @@ router.route('/submit-proposal')
         RegisteredStudent.findOne({ student_id: projectSubmit.memberId }, function(err, registered) {
             // console.log(registered.student_id + " " + projectSubmit.memberId);
             if (!registered) {
-                return res.send(`${projectSubmit.memberId} is not registered`);
+                //return res.send(`${projectSubmit.memberId} is not registered`);
+                req.flash('error',`${projectSubmit.memberId} is not registered`);
+                return res.redirect('/submit-proposal');
             }
             projectSubmit.save().then((doc) => 
             {
