@@ -68,7 +68,7 @@ router.route('/signup/:id/:email/:token')
           req.logIn(student, function(err) {
             if (err) return next(err);
             console.log('student : ',student.proposal_id);
-            res.redirect('/login');
+            res.redirect('/');
           });
         });
 
