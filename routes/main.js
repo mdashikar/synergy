@@ -29,8 +29,8 @@ router.route('/submit-proposal')
             supervisorName : "Supervisor name will be added here when proposal is accepted"
         });
         console.log(projectSubmit.memberId);
-        RegisteredStudent.findOne({ student_id: projectSubmit.memberId }, function(err, registered) {
-            // console.log(registered.student_id + " " + projectSubmit.memberId);
+        RegisteredStudent.findOne({ student_id: projectSubmit.memberId , course_code : projectSubmit.course_code }, function(err, registered) {
+            console.log(registered.student_id + " " + projectSubmit.memberId);
             if (!registered) {
                 return res.send(`${projectSubmit.memberId} is not registered`);
             }
