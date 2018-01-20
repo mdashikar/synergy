@@ -8,7 +8,6 @@
     vertical-align: middle;
     background: #fff;
     border: 1px solid #ddd;
-    font-family: 'Roboto', sans-serif;
     font-size: 16px;
     font-weight: 300;
     line-height: 44px;
@@ -106,7 +105,7 @@ label { font-weight: 300; }
     -o-transition: all .3s; -moz-transition: all .3s; -webkit-transition: all .3s; -ms-transition: all .3s; transition: all .3s;
 }
 
-.top-content button.btn:hover { opacity: 0.6; color: #fff; }
+.top-content button.btn:hover { opacity: 0.8; color: #fff; }
 .top-content button.btn:active { outline: 0; opacity: 0.6; color: #fff; -moz-box-shadow: none; -webkit-box-shadow: none; box-shadow: none; }
 .top-content button.btn:focus,
 .top-content button.btn:active:focus,
@@ -114,12 +113,12 @@ label { font-weight: 300; }
 
 .top-content button.btn.btn-next,
 .top-content button.btn.btn-next:focus,
-button.btn.btn-next:active:focus, button.btn.btn-next.active:focus { background: #f35b3f; }
+button.btn.btn-next:active:focus, button.btn.btn-next.active:focus {background: #1d2733;}
 
 button.btn.btn-submit,
 button.btn.btn-submit:focus,
-button.btn.btn-submit:active:focus, button.btn.btn-submit.active:focus { background: #f35b3f; }
+button.btn.btn-submit:active:focus, button.btn.btn-submit.active:focus {background: #1d2733;}
 
 button.btn.btn-previous,
 button.btn.btn-previous:focus,
-button.btn.btn-previous:active:focus, button.btn.btn-previous.active:focus { background: #bbb; }
+button.btn.btn-previous:active:focus, button.btn.btn-previous.active:focus {background: #696b6d; }

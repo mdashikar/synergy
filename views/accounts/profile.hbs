@@ -1,25 +1,91 @@
-<div class="container">
-  <h1 class="text-center">Profile</h1>
-
-
-  <div class="row">
-    <div class="col-md-6 col-md-offset-3">
-      <div class="overview">
-        <div class="profile-card">
-          <img class="img-circle" src=" {{user.photo}} "/>
-          <hr/>
-          <p class="text-center">
-            Hello {{ user.name }}
-          </p>
+ {{> navbar}}
+ <div class="container profile">
+        <div class="row">
+            <div class="col-md-12">
+                <h3 class="text-center">Settings</h3>
+                <h4>Change details</h4>
+                <hr>
+                <br>
+                <p><strong> Email: </strong> nabil_hasan@gmail.com</p>
+            </div>
         </div>
-      </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" class="input-height form-control" id="name" placeholder="Nabil" name="name">
+                </div>
+            </div>
+            <div class="col-md-offset-6"></div>
+        </div>
+       <div class="row">
+           <div class="col-md-6">
+               <div class="form-group">
+                    <label for="name">Location</label>
+                    <input type="text" class="input-height form-control" id="name" placeholder="Ex. Sylhet" name="name">
+                </div>
+           </div>
+           <div class="col-md-6">
+               <div class="form-group">
+                    <label for="name">Sub-location</label>
+                    <input type="text" class="input-height form-control" id="name" placeholder="Ex. Shahi-Eidgah" name="name">
+                </div>
+           </div>
+       </div> 
+       <div class="row">
+           <div class="col-md-12">
+               <button type="submit" class="btn btn-success">Update details</button>
+           </div>
+       </div> 
+       <br>  
+       <br>
+       <hr>   
+       <div class="row">
+            <div class="col-md-12">
+                <h4>Change password</h4>
+                <hr>
+            </div>
+        </div>  
+         <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="password">Current password</label>
+                    <input type="password" class="input-height form-control" id="name"  name="password">
+                </div>
+            </div>
+            <div class="col-md-offset-6"></div>
+        </div>
+         <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="password">New password</label>
+                    <input type="password" class="input-height form-control" id="name"  name="password">
+                </div>
+            </div>
+            <div class="col-md-offset-6"></div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="password">Confirm new password</label>
+                    <input type="password" class="input-height form-control" id="name"  name="password">
+                </div>
+            </div>
+            <div class="col-md-offset-6"></div>
+        </div>  
+        <div class="row">
+           <div class="col-md-12">
+               <button type="submit" class="btn btn-success">Change password</button>
+           </div>
+       </div>   
+       <hr> 
+       <div class="row">
+           <div class="col-md-12">
+               <button type="submit" class="btn btn-danger"><i class="fa fa-sign-out" aria-hidden="true"></i>
+                Log out </button>
+           </div>
+       </div>
+       <hr>                               
+             
     </div>
-
-    <div class="col-md-8">
-      <div class="overview">
-
-      </div>
-
-    </div>
-  </div>
-</div>
+    
