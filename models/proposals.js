@@ -100,11 +100,17 @@ var ProjectSubmit = mongoose.model('ProjectSubmit', {
         type : Boolean,
         default : true
     },
+    semester : {
+        type: String
+    },
+    year: {
+        type: Number
+    },
     createdAt: {
-    type: Date,
-    default: Date.now
-  }
-
+        type: Date,
+        default: Date.now
+    }
+ 
   // _creator: {
   //     type: mongoose.Schema.Types.ObjectId,
   //     required:true
