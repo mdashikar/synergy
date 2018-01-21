@@ -65,8 +65,8 @@ router.route('/submit-proposal')
         });
 
     });
-router.get('/demo-proposal', (req, res, next) => {
-    res.render('main/demo_proposal', { title: 'Submit Proposal' });
+router.get('/proposal', (req, res, next) => {
+    res.render('accounts/proposal', { title: 'Proposal demo' });
 });
 router.get('/board', (req, res, next) => {
     res.render('main/board', { title: 'Project Board' });
@@ -74,6 +74,10 @@ router.get('/board', (req, res, next) => {
 router.get('/profile', (req, res, next) => {
     res.render('accounts/profile', { title: 'Profile' });
 });
+// router.get('/proposal', (req, res, next) => {
+//     //res.render('accounts/proposal', { title: 'Demo proposal' });
+//     console.log("h");
+// });
 
 
 
