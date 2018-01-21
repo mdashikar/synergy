@@ -2,6 +2,7 @@ const router = require('express').Router();
 const RegisteredStudent = require('../models/registered_user');
 const { ProjectSubmit } = require('../models/proposals');
 const Student = require('../models/students');
+const Schedule = require('../models/schedule_form');
 
 
 router.get('/', (req, res, next) => {
@@ -14,7 +15,11 @@ router.get('/', (req, res, next) => {
             errorMessage: req.flash('errors'),successMessage: req.flash('success')});            
         });
     }else{
-        res.render('main/home', { title: "Synergy - Welcome" });
+        Schedule.find({showNav : true}).then((schedule) => {
+            console.log("schedule : "+schedule);
+          res.render('main/home', { title: "Synergy - Welcome", schedule:schedule });
+        });
+       
     }
 });
 router.route('/submit-proposal')
