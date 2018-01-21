@@ -11,7 +11,7 @@ h1,h2,h3,h4,h5,h6
     font-family: 'Ubuntu', sans-serif;
     font-family: 'Quicksand', sans-serif;
 }
-p,button,a,input,label
+p,button,a,input,label,select,strong,textarea,span
 {
     font-family: 'Montserrat', sans-serif;
     font-family: 'Ubuntu', sans-serif;
@@ -366,6 +366,10 @@ p,button,a,input,label
     width: 100px;
     font-size: 20px;
     font-weight: 700;
+}
+.alertbox
+{
+ border-radius: 6px; 
 }
 /*************welcome Board************/
 .board
