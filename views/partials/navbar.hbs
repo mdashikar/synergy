@@ -17,8 +17,12 @@
                         {{#if user}}
                             <li><a href="/logout" ><button type="button" class="btn btn-success">Log out</button></a></li>
                             {{else}}
-                            <li><a href="/submit-proposal" ><button type="button" class="btn btn-success">Submit Proposal</button></a></li>
-                            <li><a href="/login" ><button type="button" class="btn btn-success">Log in</button></a></li>
+                              {{#if schedule}}
+                                <li><a href="/submit-proposal" ><button type="button" class="btn btn-success">Submit Proposal</button></a></li>
+                                <li><a href="/login" ><button type="button" class="btn btn-success">Log in</button></a></li>
+                              {{else}}
+                                    <li><a href="/login" ><button type="button" class="btn btn-success">Log in</button></a></li>
+                              {{/if}}
                         {{/if}}
                       </ul>
                     </div>

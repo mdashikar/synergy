@@ -2,6 +2,7 @@ const router = require('express').Router();
 const RegisteredStudent = require('../models/registered_user');
 const { ProjectSubmit } = require('../models/proposals');
 const Student = require('../models/students');
+const Schedule = require('../models/schedule_form');
 
 
 router.get('/', (req, res, next) => {
@@ -14,7 +15,11 @@ router.get('/', (req, res, next) => {
             errorMessage: req.flash('errors'),successMessage: req.flash('success')});            
         });
     }else{
-        res.render('main/home', { title: "Synergy - Welcome" });
+        Schedule.find({showNav : true}).then((schedule) => {
+            console.log("schedule : "+schedule);
+          res.render('main/home', { title: "Synergy - Welcome", schedule:schedule });
+        });
+       
     }
 });
 router.route('/submit-proposal')
@@ -22,26 +27,29 @@ router.route('/submit-proposal')
         res.render('main/proposal_form', { title: 'Proposal Submit',successMessage: req.flash('success'),errorMessage: req.flash('error') });
     })
     .post((req, res, next) => {
-        var projectSubmit = new ProjectSubmit({
-            projectName: req.body.projectName,
-            projectType: req.body.projectType,
-            projectCourseCode: req.body.projectCourseCode,
-            projectTools: req.body.projectTools,
-            projectAbstract: req.body.projectAbstract,
-            projectObject : req.body.projectObject,
-            projectKeyFeatures : req.body.projectKeyFeatures,
-            projectNumberOfModules : req.body.projectNumberOfModules,
-            projectConclusion : req.body.projectConclusion,
-            memberName: req.body.memberName,
-            memberEmail: req.body.memberEmail,
-            memberId: req.body.memberId,
-            memberNumber: req.body.memberNumber,
-            supervisorName : "Supervisor name will be added here when proposal is accepted",
-            status : "Not Started"
-        });
-        console.log(projectSubmit.memberId);
-        RegisteredStudent.findOne({ student_id: projectSubmit.memberId }, function(err, registered) {
-            // console.log(registered.student_id + " " + projectSubmit.memberId);
+
+        RegisteredStudent.findOne({ student_id: req.body.memberId}, function(err, registered) {
+            var projectSubmit = new ProjectSubmit({
+              projectName: req.body.projectName,
+              projectType: req.body.projectType,
+              projectCourseCode: req.body.projectCourseCode,
+              projectTools: req.body.projectTools,
+              projectAbstract: req.body.projectAbstract,
+              projectObject: req.body.projectObject,
+              projectKeyFeatures: req.body.projectKeyFeatures,
+              projectNumberOfModules:
+              req.body.projectNumberOfModules,
+              projectConclusion: req.body.projectConclusion,
+              memberName: req.body.memberName,
+              memberEmail: req.body.memberEmail,
+              memberId: req.body.memberId,
+              memberNumber: req.body.memberNumber,
+              supervisorName:
+                "Supervisor name will be added here when proposal is accepted",
+              status: "Not Started",
+              year: registered.year,
+              semester: registered.semester 
+            });
             if (!registered) {
                 //return res.send(`${projectSubmit.memberId} is not registered`);
                 req.flash('error',`${projectSubmit.memberId} is not registered`);
