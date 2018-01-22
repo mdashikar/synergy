@@ -106,6 +106,9 @@ var ProjectSubmit = mongoose.model('ProjectSubmit', {
     year: {
         type: Number
     },
+    time: {
+        type: String
+    },
     createdAt: {
         type: Date,
         default: Date.now
