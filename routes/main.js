@@ -83,7 +83,7 @@ router.get('/profile', (req, res, next) => {
     res.render('accounts/profile', { title: 'Profile' });
 });
 // router.get('/proposal', (req, res, next) => {
-//     //res.render('accounts/proposal', { title: 'Demo proposal' });
+// res.render('accounts/proposal', { title: 'Demo proposal' });
 //     console.log("h");
 // });
 
