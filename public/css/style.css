@@ -219,14 +219,28 @@ p,button,a,input,label,select,strong,textarea,span
 
 
 /*****************Log In*****************/
-.login
-{
-    position: absolute;
-    top: 50%;
-    left:50%;
-    transform: translate(-50%,-50%); 
-    color: white;
+@media screen and (max-width: 2000px) and (min-width: 768px) {
+    .login {
+        position: absolute;
+        top: 50%;
+        left:50%;
+        transform: translate(-50%,-50%);  
+        color: white;
+    }
 }
+@media screen and (max-width: 767px) and (min-width: 320px) {
+    .login {
+        margin-top: 20%; 
+        color: white;
+    }
+}
+@media screen and (max-width: 1199px) and (min-width: 992px) {
+    .log_right
+        {
+           padding-top: 8.3% !important;
+        }
+}
+
 .login h2
 {
     padding-bottom: 4.2%;
@@ -288,13 +302,27 @@ p,button,a,input,label,select,strong,textarea,span
 }
 
 /****************Sign Up****************/
-.signup
-{
-    position: absolute;
-    top: 50%;
-    left:50%;
-    transform: translate(-50%,-50%); 
-    color: white;
+
+@media screen and (max-width: 2000px) and (min-width: 768px) {
+    .signup {
+        position: absolute;
+        top: 50%;
+        left:50%;
+        transform: translate(-50%,-50%);  
+        color: white;
+    }
+}
+@media screen and (max-width: 767px) and (min-width: 320px) {
+    .signup {
+        margin-top: 20%; 
+        color: white;
+    }
+}
+@media screen and (max-width: 1199px) and (min-width: 992px) {
+    .sign_right
+        {
+           padding-top: 5.3% !important;
+        }
 }
 .signup h2
 {

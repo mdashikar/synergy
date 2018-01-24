@@ -96,6 +96,10 @@ router.post('/edit-name/:id', (req,res,next) => {
    // res.render('main/welcome', { title: 'Profile' });
    res.redirect('/');
 });
+// router.get('/proposal', (req, res, next) => {
+// res.render('accounts/proposal', { title: 'Demo proposal' });
+//     console.log("h");
+// });
 
 
 router.post('/edit-password/:id' , function (req, res, next) {
