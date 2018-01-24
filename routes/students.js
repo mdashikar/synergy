@@ -93,9 +93,9 @@ router.route('/login')
   }));
 
 /* PROFILE ROUTE */
-router.get('/profile', passportConfig.isAuthenticated, (req, res, next) => {
-  res.render('accounts/profile');
-});
+// router.get('/profile', passportConfig.isAuthenticated, (req, res, next) => {
+//   res.render('accounts/profile');
+// });
 
 
 router.post('/forgot-password', function(req, res, next) {
