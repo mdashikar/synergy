@@ -96,10 +96,6 @@ router.post('/edit-name/:id', (req,res,next) => {
    // res.render('main/welcome', { title: 'Profile' });
    res.redirect('/');
 });
-// router.get('/proposal', (req, res, next) => {
-//     //res.render('accounts/proposal', { title: 'Demo proposal' });
-//     console.log("h");
-// });
 
 
 router.post('/edit-password/:id' , function (req, res, next) {
@@ -125,6 +121,12 @@ router.post('/edit-password/:id' , function (req, res, next) {
     }
     
     
+});
+
+router.get('/project-showcase', (req,res,next) => {
+    ProjectSubmit.find({}).then((projectSubmit) => {
+        res.render('main/showcase', { title: 'Profile' , projectSubmit : projectSubmit});
+    });
 });
 
 module.exports = router;
