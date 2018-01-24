@@ -27,49 +27,78 @@ router.route('/submit-proposal')
         res.render('main/proposal_form', { title: 'Proposal Submit',successMessage: req.flash('success'),errorMessage: req.flash('error') });
     })
     .post((req, res, next) => {
+        //{ $and: [ { student_id: req.body.memberId }, { course_code: req.body.course_code }  ] }
 
-        RegisteredStudent.findOne({ student_id: req.body.memberId}, function(err, registered) {
-            var projectSubmit = new ProjectSubmit({
-              projectName: req.body.projectName,
-              projectType: req.body.projectType,
-              projectCourseCode: req.body.projectCourseCode,
-              projectTools: req.body.projectTools,
-              projectAbstract: req.body.projectAbstract,
-              projectObject: req.body.projectObject,
-              projectKeyFeatures: req.body.projectKeyFeatures,
-              projectNumberOfModules:
-              req.body.projectNumberOfModules,
-              projectConclusion: req.body.projectConclusion,
-              memberName: req.body.memberName,
-              memberEmail: req.body.memberEmail,
-              memberId: req.body.memberId,
-              memberNumber: req.body.memberNumber,
-              supervisorName:
-                "Supervisor name will be added here when proposal is accepted",
-              status: "Not Started",
-              year: registered.year,
-              semester: registered.semester,
-              time : ""
-            });
-            if (!registered) {
-                //return res.send(`${projectSubmit.memberId} is not registered`);
-                req.flash('error',`${projectSubmit.memberId} is not registered`);
-                return res.redirect('/submit-proposal');
-            }
-            projectSubmit.save().then((doc) => 
-            {
-                //res.send(doc);
-                //  res.status(200).send('welcome', doc);
-                req.flash('success', 'Proposal Submitted!');
-                res.redirect('/submit-proposal');
-                console.log('In saving page');
-                //res.render('projectList', doc);
-            }, (e) => 
-            {
-                //res.status(400).send(e);
-                req.flash('error','Duplication error!');
-                res.redirect('/submit-proposal');
-            });
+        // RegisteredStudent.findOne({ student_id: req.body.memberId,
+        //     course_code: req.body.course_code}, function(err, registered) 
+        //     {
+        RegisteredStudent.findOne({student_id: req.body.memberId}, function(err, registered) 
+        {
+                if (!registered) {
+                    //return res.send(`${projectSubmit.memberId} is not registered`);
+                    req.flash('error',`${req.body.memberId} is not registered`);
+                    return res.redirect('/submit-proposal');
+                }
+                console.log('Result ', registered);
+                if(registered.course_code == req.body.projectCourseCode)
+                {
+                    console.log("inside if");
+                    var projectSubmit = new ProjectSubmit({
+                        projectName: req.body.projectName,
+                        projectType: req.body.projectType,
+                        projectCourseCode: req.body.projectCourseCode,
+                        projectTools: req.body.projectTools,
+                        projectAbstract: req.body.projectAbstract,
+                        projectObject: req.body.projectObject,
+                        projectKeyFeatures: req.body.projectKeyFeatures,
+                        projectNumberOfModules: req.body.projectNumberOfModules,
+                        projectConclusion: req.body.projectConclusion,
+                        memberName: req.body.memberName,
+                        memberEmail: req.body.memberEmail,
+                        memberId: req.body.memberId,
+                        memberNumber: req.body.memberNumber,
+                        supervisorName: "Supervisor name will be added here when proposal is accepted",
+                        status: "Not Started",
+                        year: registered.year,
+                        semester: registered.semester,
+                        time : ""
+                      });
+                      
+                    projectSubmit.save().then((doc) => 
+                    {
+                        
+                        req.flash('success', 'Proposal Submitted!');
+                        res.redirect('/submit-proposal');
+                        console.log('In saving page');
+                      
+                    }, (e) => 
+                    {
+                        //res.status(400).send(e);
+                        req.flash('error','Duplication error!');
+                        res.redirect('/submit-proposal');
+                    });
+                }
+                else
+                {
+                    console.log("outside if");
+                        req.flash('error',`${registered.student_id} is not registered`);
+                        return res.redirect('/submit-proposal');
+                }
+            
+            
+            // projectSubmit.save().then((doc) => 
+            // {
+                
+            //     req.flash('success', 'Proposal Submitted!');
+            //     res.redirect('/submit-proposal');
+            //     console.log('In saving page');
+              
+            // }, (e) => 
+            // {
+            //     //res.status(400).send(e);
+            //     req.flash('error','Duplication error!');
+            //     res.redirect('/submit-proposal');
+            // });
             
         });
 
@@ -93,13 +122,10 @@ router.post('/edit-name/:id', (req,res,next) => {
         doc.name = editedName;
         doc.save();
     });
-   // res.render('main/welcome', { title: 'Profile' });
+
    res.redirect('/');
 });
-// router.get('/proposal', (req, res, next) => {
-// res.render('accounts/proposal', { title: 'Demo proposal' });
-//     console.log("h");
-// });
+
 
 
 router.post('/edit-password/:id' , function (req, res, next) {
@@ -125,6 +151,12 @@ router.post('/edit-password/:id' , function (req, res, next) {
     }
     
     
+});
+
+router.get('/project-showcase', (req,res,next) => {
+    ProjectSubmit.find({}).then((projectSubmit) => {
+        res.render('main/showcase', { title: 'Profile' , projectSubmit : projectSubmit});
+    });
 });
 
 module.exports = router;
