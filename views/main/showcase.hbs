@@ -1,0 +1,186 @@
+<div class="container">
+        <div class="row">
+            <div class="gallery col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <h1 class="gallery-title">Project Show Case</h1>
+            </div>
+
+            <div align="center">
+                <button class="btn btn-default filter-button" data-filter="all">All</button>
+                <button class="btn btn-default filter-button" data-filter="hdpe">Web Application Development</button>
+                <button class="btn btn-default filter-button" data-filter="sprinkle">Mobile Application Development</button>
+                <button class="btn btn-default filter-button" data-filter="spray">Game Development</button>
+                <button class="btn btn-default filter-button" data-filter="irrigation">Thesis</button>
+            </div>
+            <br/>
+
+            {{#each projectSubmit}}
+            <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter hdpe">
+                <div class="blog">
+                    <h4 class="text-center"></h4>
+                    <h3 class="text-center">{{this.projectName}}</h3>
+                    
+                    <div class="blog_content">
+                        <p>Category: {{this.projectType}}</p>
+                        <p>{{this.projectAbstract}}</p>
+                        <p>Language: {{this.projectTools}}</p>
+                    </div>
+                    
+                    <span class="blog-date">{{this.time}}</span>
+                    <span class="view_more">
+                         <a href="viewmore.html" target="_blank"><button class="btn center-block">View More</button></a>
+                    </span>
+                    
+                    <div class="icon">
+                        <i class="pull-left fa fa-thumbs-o-up" aria-hidden="true"> 152</i>
+                        <i class="pull-right fa fa-heart-o" aria-hidden="true"> 17</i>
+                    </div>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+</div>
+<style>
+    body
+{
+        background-color: #1D2733;
+}
+p,button,a,h1,h2,h3,h4,h5,h6,span,i,button
+{
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Ubuntu', sans-serif;
+    font-family: 'Quicksand', sans-serif;
+    letter-spacing: 1px;
+    
+}
+
+.gallery-title
+{
+    font-size: 36px;
+    color:whitesmoke;
+    text-align: center;
+    font-weight: 500;
+    margin-bottom: 70px;
+}
+.gallery-title:after {
+    content: "";
+    position: absolute;
+    width: 7.5%;
+    left: 46.5%;
+    height: 45px;
+    border-bottom: 1px solid #5e5e5e;
+}
+.filter-button
+{
+    
+    border-radius: 5px;
+    text-align: center;
+    color: whitesmoke;
+    margin-bottom: 30px;
+    background-color: #384b5c;
+    border: none;
+
+}
+.filter-button:hover
+{
+    ;
+    border-radius: 5px;
+    text-align: center;
+    color: #ffffff;
+    background-color: #384b5c;
+
+}
+.filter-button:focus
+{
+    font-size: 15px;
+    border-radius: 5px;
+    text-align: center;
+    color: #ffffff;
+    background-color: #384b5c;
+
+}
+.btn-default:active .filter-button:active
+{
+    background-color: #384b5c;
+    color: white;
+}
+
+.port-image
+{
+    width: 100%;
+}
+
+.gallery_product
+{
+    margin-bottom: 30px;
+}
+.blog
+{
+    background-color:#304150;
+    height: 360px;
+    width: 365px;
+    padding: 5%;
+    color: whitesmoke;
+    border-radius: 2%;
+}
+.blog h3
+{
+    margin-top: 0px;
+}
+.blog h4
+{
+    margin-top: 10%;
+}
+.blog_content
+{
+    padding: 5%;
+    text-align: center;
+    margin-top: 2%;
+    background-color:#384b5c;
+    border-radius: 5px;
+}
+.blog-date {
+    position: absolute;
+    background-color: rgba(50, 172, 237, 0.2);
+    top: 10px;
+    left: 15px;
+    color: #fff;
+    border-radius: 0 25px 25px 0;
+    padding: 5px 10px;
+    letter-spacing: 2px;
+}
+.icon .fa
+{
+  
+    font-size: 15px;
+}
+.view_more button
+{
+    margin-top: 5%;
+    background-color: rgba(50, 172, 237, 0.2);
+}
+.view_more button:hover
+{
+    color: whitesmoke;
+}
+.view_more button:focus
+{
+    color: whitesmoke;
+}
+.view_more a
+{
+    color: whitesmoke;
+    text-decoration: none;
+}
+.view_more a:hover
+{
+    color: whitesmoke;
+}
+
+
+/*View More page*/
+.viewmore
+{
+color: whitesmoke;
+margin-top: 5%;    
+}
+</style>

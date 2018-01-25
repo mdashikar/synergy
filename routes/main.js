@@ -15,8 +15,8 @@ router.get('/', (req, res, next) => {
             errorMessage: req.flash('errors'),successMessage: req.flash('success')});            
         });
     }else{
-        Schedule.find({showNav : true}).then((schedule) => {
-            console.log("schedule : "+schedule);
+        Schedule.find({showNav : "true"}).then((schedule) => {
+            console.log("schedule : ",+schedule);
           res.render('main/home', { title: "Synergy - Welcome", schedule:schedule });
         });
        
@@ -27,11 +27,7 @@ router.route('/submit-proposal')
         res.render('main/proposal_form', { title: 'Proposal Submit',successMessage: req.flash('success'),errorMessage: req.flash('error') });
     })
     .post((req, res, next) => {
-        //{ $and: [ { student_id: req.body.memberId }, { course_code: req.body.course_code }  ] }
-
-        // RegisteredStudent.findOne({ student_id: req.body.memberId,
-        //     course_code: req.body.course_code}, function(err, registered) 
-        //     {
+       
         RegisteredStudent.findOne({student_id: req.body.memberId}, function(err, registered) 
         {
                 if (!registered) {
@@ -87,19 +83,7 @@ router.route('/submit-proposal')
                 }
             
             
-            // projectSubmit.save().then((doc) => 
-            // {
-                
-            //     req.flash('success', 'Proposal Submitted!');
-            //     res.redirect('/submit-proposal');
-            //     console.log('In saving page');
-              
-            // }, (e) => 
-            // {
-            //     //res.status(400).send(e);
-            //     req.flash('error','Duplication error!');
-            //     res.redirect('/submit-proposal');
-            // });
+        
             
         });
 
@@ -155,7 +139,7 @@ router.post('/edit-password/:id' , function (req, res, next) {
 });
 
 router.get('/project-showcase', (req,res,next) => {
-    ProjectSubmit.find({}).then((projectSubmit) => {
+    ProjectSubmit.find({}).limit(20).then((projectSubmit) => {
         res.render('main/showcase', { title: 'Profile' , projectSubmit : projectSubmit});
     });
 });
