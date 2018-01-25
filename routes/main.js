@@ -73,25 +73,10 @@ router.route('/submit-proposal')
                       
                     }, (e) => 
                     {
-                        //res.status(400).send(e);
-                        ProjectSubmit.findOne({memberId : req.body.memberId}, function(project)
-                        {
-                            req.flash('error','id Duplication error!');
-                            return res.redirect('/submit-proposal');
-                        });
-                        ProjectSubmit.findOne({memberEmail : req.body.memberEmail}, function(project)
-                        {
-                            req.flash('error','email Duplication error!');
-                            return res.redirect('/submit-proposal');
-                        });
-                        ProjectSubmit.findOne({memberNumber : req.body.memberNumber}, function(project)
-                        {
-                            req.flash('error','Phone number Duplication error!');
-                            return res.redirect('/submit-proposal');
-                        });
+                        
 
-                        // req.flash('error','Duplication error!');
-                        // res.redirect('/submit-proposal');
+                        req.flash('error','Duplication error!');
+                        res.redirect('/submit-proposal');
                     });
                 }
                 else

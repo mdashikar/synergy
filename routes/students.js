@@ -47,10 +47,10 @@ router.route('/signup/:id/:email/:token')
 
   .post((req, res, next) => {
     
-    Student.findOne({ email: req.body.email }, function(err, existingUser) {
+    Student.findOne({ username: req.body.username }, function(err, existingUser) {
       if (existingUser) {
-        req.flash('errors',  'Account with that email address already exists.');
-        return res.redirect(`/signup/${proposalID}/${emailId}`);
+        req.flash('errors',  'username already exists.');
+        return res.redirect(`/signup/${proposalID}/${emailId}/${token}`);
       } else {
 
         
