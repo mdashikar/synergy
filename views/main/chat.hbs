@@ -1,0 +1,166 @@
+<!-- momentjs lib -->
+<script src="https://cdn.jsdelivr.net/npm/moment@2.18.1/moment.min.js"></script>
+<!-- vuejs -->
+<script src="https://unpkg.com/vue"></script>
+<!-- socketio -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.slim.js"></script>
+<!-- vue http package -->
+<script src="https://cdn.jsdelivr.net/npm/vue-resource@1.3.4"></script>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 chat" id="app">
+            <div class="row">
+                <div class="col-md-3 chat_left">
+                    <h3>
+                        <i class="fa fa-users" aria-hidden="true"></i>&nbsp;People</h3>
+                    <hr>
+                    <p>&nbsp;Online</p>
+                    <ul class="list-group">
+                        <li class="list-group-item list-group-item-success">
+                            <strong>\{{currentUser}}</strong>
+                        </li>
+                    </ul>
+
+                </div>
+                <div class="col-md-9 chat_right">
+                    <div class="row">
+                        <div class="col-md-12 right_inside">
+                            <div class="chat">
+                                <div class="chat-history">
+
+                                    <h2>
+                                        <i class="fa fa-comments"></i> Chat Room</h2>
+                                    <br>
+                                    <hr>
+                                    <div class="list-group">
+                                        {{#each chats}}
+
+                                        <a href="#" class="list-group-item list-group-item-action flex-column align-items-start ">
+                                            <div class="d-flex w-100 justify-content-between">
+                                                <h5 class="mb-1">
+                                                    <i class="fa fa-user"></i> {{this.by}}</h5>
+                                                <small class="pull-right">some moments ago</small>
+                                            </div>
+                                            <p class="mb-1">{{this.text}}</p>
+
+                                        </a>
+                                        {{/each}}
+
+                                    </div>
+
+                                    <div v-for="m in messages" class="list-group">
+                                        <a v-if="m.by === currentUser" href="#" class="list-group-item list-group-item-action flex-column align-items-start ">
+                                            <div class="d-flex w-100 justify-content-between">
+                                                <h5 class="mb-1">
+                                                    <i class="fa fa-user"></i> \{{m.by}}</h5>
+                                                <small class="pull-right">\{{ humanReadable(m.when) }}</small>
+                                            </div>
+                                            <p class="mb-1">\{{m.text}}</p>
+                                        </a>
+                                        {{!--
+                                        <li v-else>
+                                            <h3>\{{ m.by }}
+                                                <i class="fa fa-circle"></i>
+                                            </h3>
+                                            <p> \{{ m.text }} </p>
+                                            <div class="gray"> \{{ humanReadable(m.when) }} </div>
+                                        </li> --}}
+
+                                        <br>
+                                    </div>
+
+                                </div>
+                                <!-- end chat-history -->
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="row message">
+                        <div class="col-md-8 margin_padding_zero">
+                            <textarea class="form-control" autofocus id="msg" v-model="msg" autocomplete="off" rows="1" placeholder="Text message..."></textarea>
+                        </div>
+                        <div class="col-md-4 margin_padding_zero">
+                            <button class="btn btn-success btn-block" v-on:click="send">
+                                Send
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+        </div>
+    </div>
+</div>
+<script>
+    let socket = io();
+    var username = '';
+    socket.on('user', function (data) {
+        console.log('Client side user data', data.username);
+        username = data.username;
+        let app = new Vue({
+            el: "#app",
+            data: {
+                currentUser: username,
+                msg: "",
+                messages: [],
+                socket: io()
+            },
+            created() {
+                // init code
+                console.log("created");
+                // register event listener
+                this.socket.on("chatChannel", chat => {
+                    console.log("received!");
+                    this.messages.push(chat);
+                    window.scrollTo(0, document.body.scrollHeight);
+                });
+                console.log("fetching chats...");
+                this.fetchChat();
+            },
+            mounted() {
+                this.currentUser;
+            },
+            methods: {
+                /**
+                    * On click send button, sends the message to chat room
+                    */
+                send(event) {
+                    let message = this.msg.trim();
+                    let by = this.currentUser;
+                    if (message.length === 0) return;
+                    this.msg = "";
+                    console.log("sending");
+                    this.socket.emit("chatChannel", {
+                        text: message,
+                        by: by
+                    });
+                },
+                /**
+                    * fetches chat history from REST API
+                    */
+                fetchChat() {
+
+                    axios.get('/chat-channel')
+                        .then(function (response) {
+                            console.log(response);
+                            if (response.data.length > 0) {
+                                //  concatinate the reverse because the server sent the latest few in reverse order
+                                //this.messages = this.messages.concat(response.data.reverse());
+                            }
+                        })
+                        .catch(function (error) {
+                            console.log(error);
+                        });
+                },
+                humanReadable(date) {
+                    return moment(date).fromNow();
+                }
+            }
+        });
+    });
+</script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>

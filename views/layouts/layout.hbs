@@ -55,10 +55,10 @@
  
     <!----------------------Initialize the editor.--------------------->
     
-    <script> $(function() { $('#editor').froalaEditor() }); </script>                                 
-        
-<!------------------------Add and Remove child---------------------------->
-      <script type="text/javascript">
+    <script> $(function() { $('#editor').froalaEditor() }); </script>  
+
+  <!------------------------Add and Remove child---------------------------->
+    <script type="text/javascript">
       $(document).ready(function () {
     //@naresh action dynamic childs
     var next = 0;
@@ -67,9 +67,10 @@
         var addto = "#field" + next;
         var addRemove = "#field" + (next);
         next = next + 1;
-        var newIn = '<div id="field'+ next +'"> <div class="form-group"> <label for="f1-name">Name</label> <input type="text" name="memberName[]" placeholder="Name" class="f1-name form-control" id="f1-name"> </div><div class="form-group"> <label for="f1-email">Email</label> <input type="text" name="memberEmail[]" placeholder="Email" class="f1-email form-control" id="f1-email"> </div><div class="form-group"> <label for="f1-number">Id</label> <input type="number" name="memberId[]" placeholder="1412020028" class="f1-number form-control" id="f1-number"> </div><div class="form-group"> <label for="f1-number">Mobile</label> <input type="number" name="memberNumber[]" placeholder="+880 1750 000 000" class="f1-number form-control" id="f1-number"> </div></div>';
+        if(next < 4){
+           var newIn = '<br><div id="field'+ next +'"> <div class="form-group"> <label for="f1-name">Name</label> <input type="text" name="memberName[]" placeholder="Name" class="f1-name form-control" id="f1-name"> </div><div class="form-group"> <label for="f1-email">Email</label> <input type="text" name="memberEmail[]" placeholder="Email" class="f1-email form-control" id="f1-email"> </div><div class="form-group"> <label for="f1-number">Id</label> <input type="number" name="memberId[]" placeholder="1412020028" class="f1-number form-control" id="f1-number"> </div><div class="form-group"> <label for="f1-number">Mobile</label> <input type="number" name="memberNumber[]" placeholder="+880 1750 000 000" class="f1-number form-control" id="f1-number"> </div></div>';
         var newInput = $(newIn);
-        var removeBtn = '<button id="remove' + (next - 1) + '" class="btn btn-danger remove-me" >Remove</button><hr></div></div><div id="field">';
+        var removeBtn = '<button id="remove' + (next - 1) + '" class="btn btn-danger remove-me" >Remove</button></div></div><div id="field">';
         var removeButton = $(removeBtn);
         $(addto).after(newInput);
         $(addRemove).after(removeButton);
@@ -81,12 +82,19 @@
                 var fieldNum = this.id.charAt(this.id.length-1);
                 var fieldID = "#field" + fieldNum;
                 $(this).remove();
+                next = next - 1;
+                console.log(next);
                 $(fieldID).remove();
-            });
+            }); 
+        }else{
+            return alert('You can add only 4 members');
+        }
+        
     });
 
 });
-    </script>
+    </script>                                 
+
      
     <script>
         function enableButton2() {

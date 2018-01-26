@@ -11,7 +11,7 @@ const hbs = require('hbs');
 const path = require('path');
 const expressHbs = require('express-handlebars');
 const passportSocketIo = require("passport.socketio");
-
+var Chat = require("../models/chat");
 const config = require('../config/secret');
 const sessionStore = new MongoStore({ url: config.database, autoReconnect: true });
 
@@ -73,6 +73,33 @@ const userRoutes = require('../routes/students');
 
 app.use(mainRoutes);
 app.use(userRoutes);
+
+app.get("/chat-channel", (req, res) => {
+  function getChats(callback) {
+    // check connection
+    if (mongoose.connection.readyState === 0) {
+      mongoose.connect(config.database, { useMongoClient: true });
+    }
+
+    let LIMIT = 10;
+    let query;
+
+    query = Chat.find({})
+      .sort({ when: -1 }) // latest first
+      .limit(LIMIT);
+
+    query.exec((err, chats) => {
+      if (err) console.error(err);
+
+      callback(chats);
+    });
+  }
+
+  getChats(chats => {
+    res.render("main/chat", { chats: chats });
+    console.log("Chat", chats);
+  });
+});
 
 http.listen(config.port, (err) => {
   if (err) console.log(err);
