@@ -33,6 +33,11 @@ p,button,a,input,label,select,strong,textarea,span
     background-color:#373f46;
     border: none;
 }
+.navigation a:hover
+{
+    background-color:#373f46;
+    
+}
 .navigation .navbar
 {
     border-radius: 0%;
