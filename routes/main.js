@@ -70,7 +70,7 @@ router.route('/submit-proposal')
                     }, (e) => 
                     {
                         
-
+                        console.log(e);
                         req.flash('error','Duplication error!');
                         res.redirect('/submit-proposal');
                     });
