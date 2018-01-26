@@ -94,6 +94,11 @@ router.get('/proposal', (req, res, next) => {
 router.get('/board', (req, res, next) => {
     res.render('main/board', { title: 'Project Board' });
 });
+router.get("/board/:id", (req, res, next) => {
+  var id = req.params.id;
+  console.log(id);
+  res.render("main/single_board", { title: "Chat and Task", id: id });
+});
 var value;
 router.get('/profile/:id', (req, res, next) => {
     value = req.params.id;
