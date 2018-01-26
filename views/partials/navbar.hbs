@@ -9,22 +9,22 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>                        
                       </button>
-                      <a class="navbar-brand" href="#"><i class="fa fa-eercast" aria-hidden="true"></i> <span class="h3">Synergy</span></a>
+                      <a class="navbar-brand logo_synergy" href="#"><i class="fa fa-eercast" aria-hidden="true"></i> <span class="h3">Synergy</span></a>
                     </div>
                     <div class="collapse navbar-collapse" id="myNavbar">
                       <ul class="nav navbar-nav navbar-right">
                         
                         {{#if user}}
-                            <li><a href="/logout" ><button type="button" class="btn btn-success">Log out</button></a></li>
-                            <li><a href="/profile/{{user._id}}" ><button type="button" class="btn btn-success">Edit Profile</button></a></li>
+                            <li><a href="/logout" >Log out</a></li>
+                            <li><a href="/profile/{{user._id}}" >Edit Profile</a></li>
                             {{else}}
                               {{#if schedule}}
-                                <li><a href="/submit-proposal" ><button type="button" class="btn btn-success">Submit Proposal</button></a></li>
-                                <li><a href="/project-showcase" ><button type="button" class="btn btn-success">Project Showcase</button></a></li>
-                                <li><a href="/login" ><button type="button" class="btn btn-success">Log in</button></a></li>
+                                <li><a href="/submit-proposal" >Submit Proposal</a></li>
+                                <li><a href="/project-showcase" >Project Showcase</a></li>
+                                <li><a href="/login" >Log in</a></li>
                               {{else}}
-                                    <li><a href="/login" ><button type="button" class="btn btn-success">Log in</button></a></li>
-                                    <li><a href="/project-showcase" ><button type="button" class="btn btn-success">Project Showcase</button></a></li>
+                                    <li><a href="/login" >Log in</a></li>
+                                    <li><a href="/project-showcase" >Project Showcase</a></li>
                               {{/if}}
                         {{/if}}
                       </ul>
