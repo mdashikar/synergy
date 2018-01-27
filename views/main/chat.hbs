@@ -16,7 +16,7 @@
                     <hr>
                     <p>&nbsp;Online</p>
                     <ul class="list-group">
-                        <li class="list-group-item list-group-item-success">
+                        <li class="list-group-item list-group-item-info">
                             <strong>\{{currentUser}}</strong>
                         </li>
                     </ul>
@@ -78,7 +78,7 @@
 
                     <div class="row message">
                         <div class="col-md-8 margin_padding_zero">
-                            <textarea class="form-control" autofocus id="msg" v-model="msg" autocomplete="off" rows="1" placeholder="Text message..."></textarea>
+                            <input class="form-control" autofocus id="msg" v-model="msg" autocomplete="off" rows="1" placeholder="Text message...">
                         </div>
                         <div class="col-md-4 margin_padding_zero">
                             <button class="btn btn-success btn-block" v-on:click="send">

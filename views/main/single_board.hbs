@@ -9,8 +9,7 @@
             <div id="mySidenav" class="sidenav pull-right">
                 <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
                 <h4 class="text-center">Menu</h4>
-                <hr> 
-                {{#if id}}
+                <hr> {{#if id}}
 
                 <a href="/chat-channel">
                     <i class="fa fa-user-plus" aria-hidden="true"></i>&nbsp;&nbsp;Chat Channel</a>
@@ -18,14 +17,39 @@
                 <hr>
                 <a href="">
                     <i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;Project Description</a>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad quam excepturi voluptatem atque assumenda repellendus
-                    quia deleniti at molestias dolor quisquam itaque consequatur modi quis, iusto, illo tempora officia saepe?</p>
+                <p>{{project.projectAbstract}}</p>
                 <hr>
 
                 <a href="">
-                    <i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;Board member</a>
+                    <i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;Board member Name</a>
                 <ul class="list-group">
-                    <li></li>
+                    {{#each project.memberName}}
+                    <li class="list-group-item">{{this}}</li>
+                    {{/each}}
+                </ul>
+
+                <a href="">
+                    <i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;Board member Id</a>
+                <ul class="list-group">
+                    {{#each project.memberId}}
+                    <li class="list-group-item">{{this}}</li>
+                    {{/each}}
+                </ul>
+
+                <a href="">
+                    <i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;Board member Email</a>
+                <ul class="list-group">
+                    {{#each project.memberEmail}}
+                    <li class="list-group-item">{{this}}</li>
+                    {{/each}}
+                </ul>
+
+                <a href="">
+                    <i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;Board member Number</a>
+                <ul class="list-group">
+                    {{#each project.memberNumber}}
+                    <li class="list-group-item">{{this}}</li>
+                    {{/each}}
                 </ul>
 
 
@@ -42,7 +66,7 @@
 <!---------------------------------Vue Code-------------------------------->
 <main id="todolist">
     <h1>
-        Todo List
+        Task List
         <span>Get things done, one item at a time.</span>
     </h1>
 
@@ -51,13 +75,13 @@
             <li v-for="item in todoByStatus" v-bind:class="item.done ? 'done' : ''" v-bind:key="item.id">
                 <span class="label">\{{item.label}}</span>
                 <div class="actions">
-                    <button class="btn-picto" type="button" v-on:click="markAsDoneOrUndone(item)" v-bind:aria-label="item.done ? 'Undone' : 'Done'"
+                    {{!-- <button class="btn-picto" type="button" v-on:click="markAsDoneOrUndone(item)" v-bind:aria-label="item.done ? 'Undone' : 'Done'"
                         v-bi/nd:title="item.done ? 'Undone' : 'Done'">
                         <i aria-hidden="true" class="material-icons">\{{ item.done ? 'check_box' : 'check_box_outline_blank' }}</i>
                     </button>
                     <button class="btn-picto" type="button" v-on:click="deleteItemFromList(item)" aria-label="Delete" title="Delete">
                         <i aria-hidden="true" class="material-icons">delete</i>
-                    </button>
+                    </button> --}}
                 </div>
             </li>
         </transition-group>
@@ -65,11 +89,11 @@
     </template>
     <p v-else class="emptylist">Your todo list is empty.</p>
 
-    <form name="newform" v-on:submit.prevent="addItem">
+    {{!-- <form name="newform" v-on:submit.prevent="addItem">
         <label for="newitem">Add to the todo list</label>
         <input type="text" name="newitem" id="newitem" v-model="newitem">
         <button type="submit">Add item</button>
-    </form>
+    </form> --}}
 </main>
 
 <!-- socketio -->

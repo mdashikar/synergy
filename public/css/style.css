@@ -476,3 +476,138 @@ p,button,a,input,label,select,strong,textarea,span
     letter-spacing: 1px;
     
 }
+
+/************Project board*************/
+
+/**************Side bar***************/
+
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    background-color: #23282d;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 16px;
+    margin-top: 4.1%;
+    color: #818181;
+}
+
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 17px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidenav a:hover {
+    color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+@media screen and (max-height: 450px) {
+    .sidenav {
+        padding-top: 15px;
+    }
+    .sidenav a {
+        font-size: 18px;
+    }
+}
+
+/* Chat */
+
+.chat {
+    margin-top: 5%;
+}
+
+.margin_padding_zero {
+    margin-left: 0px;
+    margin-right: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.chat_left {
+    background: rgba(12, 92, 136, 0.5);
+    min-height: 496px;
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
+    color: whitesmoke;
+}
+
+.chat_left .list-group-item {
+    padding: 5px 15px;
+}
+
+.chat_left .list-group-item-success {
+    color: #3a5d6f;
+}
+
+.chat_right {
+    padding: 4%;
+    min-height: 450px;
+    background: rgba(61, 98, 117, 0.92);
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    color: whitesmoke;
+}
+
+.right_inside {
+    background-color: #576c77;
+    min-height: 370px;
+    border-radius: 3px;
+    padding: 3%;
+    overflow-y: scroll;
+    overflow-x: scroll;
+}
+
+.message textarea {
+    border-bottom-right-radius: 0% !important;
+    border-top-right-radius: 0% !important;
+    border: none;
+    background-color: whitesmoke;
+}
+
+.message button {
+    border-bottom-left-radius: 0% !important;
+    border-top-left-radius: 0% !important;
+    border: none;
+    background-color: #1d2733;
+}
+
+.message button:hover,
+:focus {
+    background-color: #1d2733;
+}
+
+.message button:focus {
+    background-color: #1d2733;
+}
+
+.center {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: auto;
+    margin-top: auto;
+}
+
+.center h1 {
+    color: #fff;
+}
+
+.center p {
+    color: #fff;
+}

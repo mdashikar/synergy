@@ -143,6 +143,21 @@ router.post('/edit-password/:id' , function (req, res, next) {
     
 });
 
+router.get("/board/:id", (req, res, next) => {
+  var id = req.params.id;
+  console.log(id);
+  ProjectSubmit.findOne({ _id: id }).then(project => {
+    console.log("inside: ", project);
+    res.render("main/single_board", {
+      title: "Project Board",
+      project: project,
+      id: id,
+      errorMessage: req.flash("errors"),
+      successMessage: req.flash("success")
+    });
+  });
+});
+
 router.get('/project-showcase', (req,res,next) => {
     ProjectSubmit.find({}).limit(20).then((projectSubmit) => {
         res.render('main/showcase', { title: 'Profile' , projectSubmit : projectSubmit});
